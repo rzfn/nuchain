@@ -1,6 +1,5 @@
 # NUCHAIN &middot; [![GitHub license](https://img.shields.io/badge/license-GPL3%2FApache2-blue)](#LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/CONTRIBUTING.adoc)
 
-Blockchain untuk Nusantara menuju Indonesia Society 5.0.
 
 *TL;DR*: Ini adalah proyek iseng dengan visi besar.
 
@@ -110,12 +109,12 @@ nuchain --base-path=/var/nuchain --name=unsiq-node01 --bootnodes=/ip4/<OTHER-NOD
 `<OTHER-NODE-IP>` adalah IP dari node lain yang ingin digunakan sebagai titik masuk awal.
 `<ID-NODE>` adalah ID dari node yang akan dijadikan sebagai pintu awal masuknya node kamu ke dalam jaringan utama Nuchain (mainnet).
 
+
 ## Komunitas
 
 Bergabunglah dengan komunitas untuk diskusi tentang Nuchain melalui beberapa kanal berikut:
 
-
-* Chat: [Element](https://app.element.io/#/room/!aYWUxhUvutqbMBQIsN:matrix.org)
+* Chat: [Element](https://app.element.io/#/room/!aYWUxhUvutqbMBQIsN:matrix.org), [Telegram](https://t.me/nusantarachain)
 * Email: nusantarachain@gmail.com
 
 ## Contributions & Code of Conduct
