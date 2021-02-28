@@ -201,6 +201,8 @@ impl Default for SnapshotConfig {
 pub struct Builder<B: BlockT> {
 	inject: Vec<KeyPair>,
 	mode: Mode<B>,
+    #[allow(dead_code)]
+	chain: String,
 }
 
 impl<B: BlockT> Default for Builder<B> {
