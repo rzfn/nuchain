@@ -238,3 +238,4 @@ try-runtime = [
 	"pallet-vesting/try-runtime",
 	"pallet-gilt/try-runtime",
 ]
+testnet = ["pallet-balances/testnet-faucet"]

@@ -24,48 +24,50 @@ use sc_cli::{ChainSpec, Result, Role, RuntimeVersion, SubstrateCli};
 use sc_service::PartialComponents;
 
 impl SubstrateCli for Cli {
-    fn impl_name() -> String {
-        "Nuchain Node".into()
-    }
+	fn impl_name() -> String {
+		"Nuchain Node".into()
+	}
 
-    fn impl_version() -> String {
-        env!("SUBSTRATE_CLI_IMPL_VERSION").into()
-    }
+	fn impl_version() -> String {
+		env!("SUBSTRATE_CLI_IMPL_VERSION").into()
+	}
 
-    fn description() -> String {
-        env!("CARGO_PKG_DESCRIPTION").into()
-    }
+	fn description() -> String {
+		env!("CARGO_PKG_DESCRIPTION").into()
+	}
 
-    fn author() -> String {
-        env!("CARGO_PKG_AUTHORS").into()
-    }
+	fn author() -> String {
+		env!("CARGO_PKG_AUTHORS").into()
+	}
 
-    fn support_url() -> String {
-        "https://github.com/nusantarachain/nuchain/issues/new".into()
-    }
+	fn support_url() -> String {
+		"https://github.com/nusantarachain/nuchain/issues/new".into()
+	}
 
-    fn copyright_start_year() -> i32 {
-        2021
-    }
+	fn copyright_start_year() -> i32 {
+		2021
+	}
 
-    fn load_spec(&self, id: &str) -> std::result::Result<Box<dyn sc_service::ChainSpec>, String> {
-        let spec = match id {
-            "" => Box::new(chain_spec::main_config()?),
-            "dev" => Box::new(chain_spec::development_config()),
-            "local" => Box::new(chain_spec::local_testnet_config()),
-            "fir" | "flaming-fir" => Box::new(chain_spec::flaming_fir_config()?),
-            "testnet" => Box::new(chain_spec::testnet_config()),
-            "prod" => Box::new(chain_spec::prod_config()),
-            path => Box::new(chain_spec::ChainSpec::from_json_file(
-                std::path::PathBuf::from(path),
-            )?),
-        };
-        Ok(spec)
-    }
+	fn load_spec(&self, id: &str) -> std::result::Result<Box<dyn sc_service::ChainSpec>, String> {
+		let spec =
+			match id {
+				"" => Box::new(chain_spec::main_config()?),
+				"dev" => Box::new(chain_spec::development_config()),
+				"local" => Box::new(chain_spec::local_staging_config()),
+				"fir" | "flaming-fir" => Box::new(chain_spec::flaming_fir_config()?),
+				"testnet" => Box::new(chain_spec::testnet_config()?),
+				"staging" => Box::new(chain_spec::staging_config()),
+				"prod" => Box::new(chain_spec::prod_config()),
+				path => Box::new(chain_spec::ChainSpec::from_json_file(
+					std::path::PathBuf::from(path),
+				)?),
+			};
+		Ok(spec)
+	}
 
-    fn native_runtime_version(_: &Box<dyn ChainSpec>) -> &'static RuntimeVersion {
-        &nuchain_runtime::VERSION
-    }
+	fn native_runtime_version(_: &Box<dyn ChainSpec>) -> &'static RuntimeVersion {
+		&nuchain_runtime::VERSION
+	}
 }
 
 /// Parse command line arguments into service configuration.
