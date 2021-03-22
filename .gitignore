@@ -26,3 +26,4 @@ rls*.log
 *.bin
 *.iml
 bin_archives/
+*.exe
